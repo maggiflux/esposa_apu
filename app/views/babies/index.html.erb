@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<h1>Babies</h1>
+<table>
+
+
+  <tbody>
+    <% @babies.each do |baby| %>
+    <%= baby.name %><br>
+    <%= "El bebé ha tomado leche" %>
+    <%= baby.control %>
+        <%= "veces" %>
+    <%= "con un total de" %>
+    <%= baby.sum %>
+    <%= "ml" %>
+   <br>
+<%= link_to 'Delete', baby, method: :delete, data: { conrfirm:" Seguro?" } %><br>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Baby', new_baby_path %>

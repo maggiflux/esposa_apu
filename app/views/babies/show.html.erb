@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @baby.name %>
+  <strong>Veces hoy:</strong>
+  <%= @baby.breastfeedings.where('created_at > ?', Date.today).count %>
+  <strong>última vez:</strong>
+  <strong>veces hoy</strong>
+  <%= @baby.breastfeedings.where('created_at >?', Date.today).sum(:volume) %>
+  <strong>Última vez</strong>
+  <%= time_ago_in_words(@baby.breastfeedings.last.created_at) %>
+</p>
+
+<%= link_to 'Edit', edit_baby_path(@baby) %> |
+<%= link_to 'Back', babies_path %>
